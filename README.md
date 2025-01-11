@@ -1,0 +1,3 @@
+This website is my interpretation of the Digital Garden concept, which is "an imperfect and ever-changing space to explore, investigate, and experiment with ideas and projects that affect me in some way." I hope it serves as both a personal record of my work and as a medium to connect with others while avoiding the most commonly used tools like social media.
+
+Este sitio web es mi interpretación del concepto de Jardín Digital, es decir, "una forma incompleta e imperfecta de explorar, investigar y experimentar (jugar) con ideas y conceptos que me afectan de una u otra forma (emocional y políticamente)". Espero que me sirva tanto como un registro personal (bitácora) como también como una herramienta para conectar con otros, por fuera de productos como las redes sociales."
