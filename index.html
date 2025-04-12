@@ -13,12 +13,31 @@
   <p>Todo está en la consola</p>
 </body>
 <script>
-  const post = [
-    "08/04/2005 - 15:22 | Este es mi jardín digital, este es un espacio donde voy documentando para mi y para quien tenga curiosidad mi recorido en el mundo profesional, mi intento de estudiar matematicas, mi intento de estudiar filosofia y mi intento de hacer arte.",
-    "11/04/2005 - 20:45 | Para mi, Ciencias de la Computación es una carrera que está entre Matemáticas e Ingeneria en Sistemas. Me parece que la Licenciatura en Matemáticas es muy compleja y abstracta mientras que Ingeniería es muy práctica y por lo tanto está ligada a procesos de la industria, los cuales ya conozco lo suficiente y tambien creo que van a cambiar significativamente. Por eso elijo Ciencias de la computación, conocimiento profundo sobre las matemáticas directamente asociadas con la programación, un conocimiento profundo de conceptos fundacionales y aprender a trabajar con problemas complejos. Me interesa la facultad tambien porque quiero poder conectar con el espacio académico, colocarme en ese lugar hablando con la gente que estudia esto, los profesores. Me interesa el desafio de aprender, quiero aprender de que se trata. Hoy de hecho hice mi primer uso de fracciones para saber cuanto es el 60 porciento de mi sueldo y saber cuato voy a cobrar. 813 * 60 / 100",
-  ]
-  for (i = 0; i < post.length; i++) {
-    console.log(post[i])
+  const contents = [
+    {
+      meta : {
+        created : "08/04/2005 - 15:22",
+        content_id : "1",
+      },
+      content : "Este es mi jardín digital, este es un espacio donde voy documentando para mi y para quien tenga curiosidad mi recorido en el mundo profesional, mi intento de estudiar matematicas, mi intento de estudiar filosofia y mi intento de hacer arte.",
+    },
+    {
+      meta : {
+        created : "11/04/2025",
+        content_id : "2",
+      },
+      content : "Para mi, Ciencias de la Computación es una carrera que está entre Matemáticas e Ingeneria en Sistemas. Me parece que la Licenciatura en Matemáticas es muy compleja y abstracta mientras que Ingeniería es muy práctica y por lo tanto está ligada a procesos de la industria, los cuales ya conozco lo suficiente y tambien creo que van a cambiar significativamente. Por eso elijo Ciencias de la computación, conocimiento profundo sobre las matemáticas directamente asociadas con la programación, un conocimiento profundo de conceptos fundacionales y aprender a trabajar con problemas complejos. Me interesa la facultad tambien porque quiero poder conectar con el espacio académico, colocarme en ese lugar hablando con la gente que estudia esto, los profesores. Me interesa el desafio de aprender, quiero aprender de que se trata. Hoy de hecho hice mi primer uso de fracciones para saber cuanto es el 60 porciento de mi sueldo y saber cuato voy a cobrar. 813 * 60 / 100.",
+    },
+    {
+      meta : {
+        created : "11/04/2025",
+        content_id : "3",
+      },
+      content : "Estaba pensando en usar los conceptos de \"entanglement\" y \"kindness\" de Donna Haraway para darle nombres a variables dentro de la logica de este proyecto. Pensaba en que tendrian que ser dos cosas separadas, pero ahora pienso en filosificamente si quizas cada entrada en si debería tener la informacion que le relaciona con otra entrada. Por ejemplo un \"theme_id\" entonces el primer post que es sobre lo que este post es seria un id 1 y luego el segundo post que es sobre mi recorrido estudiando Ciencias de la Computacion es un 2.",
+    }
+  ];
+  for (i = 0; i < contents.length; i++) {
+    console.log(contents[i].content)
   }
 </script>
 
