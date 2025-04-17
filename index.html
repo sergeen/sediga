@@ -6,39 +6,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sediga</title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <style>
+    div {
+      padding-bottom: 1rem;
+      font-family: monospace;
+    }
+  </style>
 </head>
 
-<body>
-  <p>All is in the console</p>
-  <p>Todo está en la consola</p>
+<body id="main">
+  <!-- Here we put all the stuff -->
 </body>
 <script>
   const contents = [
     {
-      meta : {
-        created : "08/04/2005 - 15:22",
-        content_id : "1",
+      meta: {
+        created: "08/04/2005 - 15:22",
+        content_id: "1",
       },
-      content : "Este es mi jardín digital, este es un espacio donde voy documentando para mi y para quien tenga curiosidad mi recorido en el mundo profesional, mi intento de estudiar matematicas, mi intento de estudiar filosofia y mi intento de hacer arte.",
+      content: "Este es mi jardín digital, este es un espacio donde voy documentando para mi y para quien tenga curiosidad mi recorido en el mundo profesional, mi intento de estudiar matematicas, mi intento de estudiar filosofia y mi intento de hacer arte.",
     },
     {
-      meta : {
-        created : "11/04/2025",
-        content_id : "2",
+      meta: {
+        created: "11/04/2025",
+        content_id: "2",
       },
-      content : "Para mi, Ciencias de la Computación es una carrera que está entre Matemáticas e Ingeneria en Sistemas. Me parece que la Licenciatura en Matemáticas es muy compleja y abstracta mientras que Ingeniería es muy práctica y por lo tanto está ligada a procesos de la industria, los cuales ya conozco lo suficiente y tambien creo que van a cambiar significativamente. Por eso elijo Ciencias de la computación, conocimiento profundo sobre las matemáticas directamente asociadas con la programación, un conocimiento profundo de conceptos fundacionales y aprender a trabajar con problemas complejos. Me interesa la facultad tambien porque quiero poder conectar con el espacio académico, colocarme en ese lugar hablando con la gente que estudia esto, los profesores. Me interesa el desafio de aprender, quiero aprender de que se trata. Hoy de hecho hice mi primer uso de fracciones para saber cuanto es el 60 porciento de mi sueldo y saber cuato voy a cobrar. 813 * 60 / 100.",
+      content: "Para mi, Ciencias de la Computación es una carrera que está entre Matemáticas e Ingeneria en Sistemas. Me parece que la Licenciatura en Matemáticas es muy compleja y abstracta mientras que Ingeniería es muy práctica y por lo tanto está ligada a procesos de la industria, los cuales ya conozco lo suficiente y tambien creo que van a cambiar significativamente. Por eso elijo Ciencias de la computación, conocimiento profundo sobre las matemáticas directamente asociadas con la programación, un conocimiento profundo de conceptos fundacionales y aprender a trabajar con problemas complejos. Me interesa la facultad tambien porque quiero poder conectar con el espacio académico, colocarme en ese lugar hablando con la gente que estudia esto, los profesores. Me interesa el desafio de aprender, quiero aprender de que se trata. Hoy de hecho hice mi primer uso de fracciones para saber cuanto es el 60 porciento de mi sueldo y saber cuato voy a cobrar. 813 * 60 / 100.",
     },
     {
-      meta : {
-        created : "11/04/2025",
-        content_id : "3",
+      meta: {
+        created: "11/04/2025",
+        content_id: "3",
       },
-      content : "Estaba pensando en usar los conceptos de \"entanglement\" y \"kindness\" de Donna Haraway para darle nombres a variables dentro de la logica de este proyecto. Pensaba en que tendrian que ser dos cosas separadas, pero ahora pienso en filosificamente si quizas cada entrada en si debería tener la informacion que le relaciona con otra entrada. Por ejemplo un \"theme_id\" entonces el primer post que es sobre lo que este post es seria un id 1 y luego el segundo post que es sobre mi recorrido estudiando Ciencias de la Computacion es un 2.",
-    }
+      content: "Estaba pensando en usar los conceptos de \"entanglement\" y \"kindness\" de Donna Haraway para darle nombres a variables dentro de la logica de este proyecto. Pensaba en que tendrian que ser dos cosas separadas, pero ahora pienso en filosificamente si quizas cada entrada en si debería tener la informacion que le relaciona con otra entrada. Por ejemplo un \"theme_id\" entonces el primer post que es sobre lo que este post es seria un id 1 y luego el segundo post que es sobre mi recorrido estudiando Ciencias de la Computacion es un 2.",
+    },
+    {
+      meta: {
+        created: "14/4/2025 - 10:16",
+        content_id: "4",
+      },
+      content: "Estoy pensando si tiene algo de sentido en este blog, hacer algo mucho mas experimental. Algo como... probar hacer que cada post sea como un organismo, algo como solo funciones que son algo asi como pequeñas criaturas, que se manifiestan de una forma u otra desde sus limitadas posibilidades, creciendo en complejidad. Por ejemplo las primeras funciones quizas solo tienen la capacidad de hacer un console log, pero luego las otras funciones tienen la posibilidad de insertar texto en el DOOM. Es algo asi como programación anti industrial.",
+    },
+    {
+      meta: {
+        created: "17/4/2025 - 19:11",
+        content_id: "5",
+      },
+      content: "Lo de experimentar con crear funciones re locas esta bueno, pero lo voy a dejar para mas adelante. Ahora lo que me intersa es avanzar con un espacio capaz de mostrar algo de contenido. Por lo que voy a seguir una estrctura más industrial. Creo que es importante establecer alcances y límites a lo que hacemos.",
+    },
   ];
-  for (i = 0; i < contents.length; i++) {
-    console.log(contents[i].content)
+
+  // DOM Manipulation
+
+  function addContentToElement(content, type, parent) {
+    typesOfDomContent = [
+      "div",
+    ]
+    if (
+      typeof content === "string"
+      && typeof type === "string"
+      && typesOfDomContent.includes(type)
+      && content.length > 0
+      && type.length > 0
+      && parent.ELEMENT_NODE === 1
+    ) {
+      // console.log(typeof content)
+      const newElement = document.createElement(type);
+      const textNode = document.createTextNode(content);
+      
+      newElement.appendChild(textNode);
+      parent.appendChild(newElement);
+    } else {
+      console.warn("DEV: ERROR: 💀 addContentToElement does not recognize something being provided in the params. Check what you are actually passing to it.")
+    }
   }
+
+  // Setup
+
+  function handleDOMContentLoaded() {
+    // Code Execution
+    for (i = 0; contents.length > i; i++) {
+      addContentToElement(contents[i].content, "div", document.getElementById('main'));
+    }
+
+    // Clean up y report
+    console.log("DEV OK: 👌🏻Content loaded");
+    document.removeEventListener("DOMContentLoaded", handleDOMContentLoaded);
+  }
+
+  function init() {
+    document.addEventListener("DOMContentLoaded", handleDOMContentLoaded);
+  }
+
+  // Init
+
+  init();
+
 </script>
 
 </html>
