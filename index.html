@@ -58,24 +58,23 @@
 
   // DOM Manipulation
 
-  function addContentToElement(content, type, parent) {
-    typesOfDomContent = [
+  function addContentToElement(textContent, contentType, parentNode) {
+    acceptedContentTypes = [
       "div",
     ]
     if (
-      typeof content === "string"
-      && typeof type === "string"
-      && typesOfDomContent.includes(type)
-      && content.length > 0
-      && type.length > 0
-      && parent.ELEMENT_NODE === 1
+      typeof textContent === "string"
+      && typeof contentType === "string"
+      && acceptedContentTypes.includes(contentType)
+      && textContent.length > 0
+      && contentType.length > 0
+      && parentNode.ELEMENT_NODE === 1
     ) {
-      // console.log(typeof content)
-      const newElement = document.createElement(type);
-      const textNode = document.createTextNode(content);
+      const newElement = document.createElement(contentType);
+      const textNode = document.createTextNode(textContent);
       
       newElement.appendChild(textNode);
-      parent.appendChild(newElement);
+      parentNode.appendChild(newElement);
     } else {
       console.warn("DEV: ERROR: 💀 addContentToElement does not recognize something being provided in the params. Check what you are actually passing to it.")
     }
