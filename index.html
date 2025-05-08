@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SeDiGa</title>
+</head>
+
+<body>
+  <div>
+    <p><strong>SeDiGa</strong> Sergio Digital Garden</p>
+  </div>
+</body>
+<script>
+  const postData = [
+    {
+      title: "Empezar a pensar",
+      content: "En una época que pensar fuera una pérdida de tiempo, me quiero permitir hacer algo que sea lento, que sea incómodo, poco conveniente, artesanal. Quiero permitirme ir en contra del tiempo industrial, financiero y psicótico.",
+      type: "short",
+      date: "1746665190",
+    }
+  ]
+
+  const entryCreator = (postData) => {
+
+    postData.map(entry => {
+      const newDiv = document.createElement("div");
+      const textNode = document.createTextNode(entry.content);
+      const body = document.body;
+
+      newDiv.appendChild(textNode);
+      newDiv.classList.add(entry.type);
+
+      body.appendChild(newDiv)
+    })
+  };
+
+  document.addEventListener("DOMContentLoaded", function(event) {
+    entryCreator(postData);
+  })
+
+</script>
+
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .short {
+    border-left: 4px solid grey;
+    background-color: aliceblue;
+    padding: 12px;
+    margin: 4px;
+  }
+</style>
+
+</html>
