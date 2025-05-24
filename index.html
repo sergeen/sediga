@@ -10,15 +10,23 @@
 <body>
   <div>
     <p><strong>SeDiGa</strong> Sergio Digital Garden</p>
+    <div id="here"></div>
   </div>
 </body>
 <script>
+  // Entry point, where the application initialization begins.
   const postData = [
     {
       title: "Empezar a pensar",
       content: "En una época que pensar fuera una pérdida de tiempo, me quiero permitir hacer algo que sea lento, que sea incómodo, poco conveniente, artesanal. Quiero permitirme ir en contra del tiempo industrial, financiero y psicótico.",
       type: "short",
       date: "1746665190",
+    },
+    {
+      title: "Mínimo visual y móvil",
+      content: "Es una investigación, un juego. Dispositivos lumīnicos principalmente analógicos, como pude ser una luz viajando dentro de un tubo con perforaciones. Es un juego de piezas. Es un proceso de colocar piezas en relación con otras. Hay un tema con la sincronicidad de cada evento luminoso con otro evento sonoro. Puede no ser una sincronicidad tradicional / directa",
+      type: "short",
+      date: "1748126414",
     }
   ]
 
@@ -27,30 +35,53 @@
     postData.map(entry => {
       const newDiv = document.createElement("div");
       const textNode = document.createTextNode(entry.content);
-      const body = document.body;
+      const mountPoint = document.getElementById("here"); // My target container where app lives
 
       newDiv.appendChild(textNode);
       newDiv.classList.add(entry.type);
 
-      body.appendChild(newDiv)
+      mountPoint.appendChild(newDiv)
     })
   };
 
-  document.addEventListener("DOMContentLoaded", function(event) {
+  document.addEventListener("DOMContentLoaded", function (event) {
     entryCreator(postData);
   })
 
 </script>
 
 <style>
-  body {
-    font-family: 'Courier New', Courier, monospace;
+  @media (prefers-color-scheme: dark) {
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      color: rgb(197, 175, 147);
+      background-color: rgb(57, 49, 35);
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .short {
+      border-left: 4px solid rgb(32, 32, 32);
+      background-color: rgb(54, 54, 54);
+      padding: 12px;
+      margin: 4px;
+      border: 1px solid rgb(101, 18, 18);
+    }
   }
-  .short {
-    border-left: 4px solid grey;
-    background-color: aliceblue;
-    padding: 12px;
-    margin: 4px;
+
+  @media (prefers-color-scheme: light) {
+    body {
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .short {
+      border-left: 4px solid grey;
+      background-color: aliceblue;
+      padding: 12px;
+      margin: 4px;
+    }
   }
 </style>
 
