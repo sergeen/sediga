@@ -8,10 +8,14 @@
 </head>
 
 <body>
-  <div>
-    <p><strong>SeDiGa</strong> Sergio Digital Garden</p>
-    <div id="here"></div>
-  </div>
+  <header>
+    <h1>
+      <strong>SeDiGa</strong> Sergio Digital Garden
+    </h1>
+  </header>
+  <main>
+    <section id="here" aria-label="Entradas de la bitácora"></section>
+  </main>
 </body>
 <script>
   // Entry point, where the application initialization begins.
@@ -33,14 +37,16 @@
   const entryCreator = (postData) => {
 
     postData.map(entry => {
-      const newDiv = document.createElement("div");
-      const textNode = document.createTextNode(entry.content);
       const mountPoint = document.getElementById("here"); // My target container where app lives
+      
+      const newArticle = document.createElement("article");
+      const newParagraph = document.createElement("p")
+      
+      newParagraph.textContent = entry.content;
+      newArticle.appendChild(newParagraph);
+      newArticle.classList.add(entry.type);
 
-      newDiv.appendChild(textNode);
-      newDiv.classList.add(entry.type);
-
-      mountPoint.appendChild(newDiv)
+      mountPoint.appendChild(newArticle)
     })
   };
 
@@ -60,6 +66,10 @@
 
     p {
       font-size: 16px;
+    }
+
+    h1 {
+      font-weight: 400;
     }
 
     .short {
