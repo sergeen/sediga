@@ -31,20 +31,35 @@
       content: "Es una investigación, un juego. Dispositivos lumīnicos principalmente analógicos, como pude ser una luz viajando dentro de un tubo con perforaciones. Es un juego de piezas. Es un proceso de colocar piezas en relación con otras. Hay un tema con la sincronicidad de cada evento luminoso con otro evento sonoro. Puede no ser una sincronicidad tradicional / directa",
       type: "short",
       date: "1748126414",
+    },
+    {
+      title: "Entramado",
+      content: "Al buscar un título para este, mi primer aritculo público, pense en la palabra \"redes\" pero la palabra no me convence, tambien pensé mucho en \"mesh\" la palabra que ChatGPT traduce como \"redes de maya\", que sería una definición presiza y para mi un tanto espantosa. Fue como recordé mis multiples intentos de leer Donna Haraway y como en los textos en español usan la palabra \"entramado\" para describir esa intersección e interconexion y mutua afectación entre componentes y partes y seres vivos, así que ahi vamos: entramados.\n\nEl dolor de espalda cuando duermo más de 6 horas y cuanto se mueve la persona que duerme conmigo es de las pocas cosas que me quitan el sueño. La ansiedad por mi futuro, al menos al momento de escribir esto, no es está entre esas cosas. En que punto pude empezar a dormir a pesar de todo, no lo se. A lo mejor mis ansiedades son proletarias y privilegiadas, tienen horario laboral, se toman vacaciones, feriados, fines de semana. Es quizas una formidable capacidad de eso que llaman \"fingir demencia\", ayudada por un estar rodeado de gente maravillosa, que maravilla las redes de personas.\n\nQue maravillas las tramas de personas, que dificiles de cuidar, no hace falta mucho más pero que dificiles de cuidar. Las redes son como plantitas, solo hay que cuidarlas, ellas crecen con solo cuidarlas.",
+      emo_contex: [
+        {
+          content: "https://www.youtube.com/watch?v=NWj8HQAgo6g&t=3118s"
+        }
+      ],
+      type: "article",
+      date: "1748391501"
     }
+
   ]
 
   const entryCreator = (postData) => {
 
-    postData.map(entry => {
+    postData.map((entry, index) => {
       const mountPoint = document.getElementById("here"); // My target container where app lives
-      
+
       const newArticle = document.createElement("article");
       const newParagraph = document.createElement("p")
-      
+
       newParagraph.textContent = entry.content;
       newArticle.appendChild(newParagraph);
       newArticle.classList.add(entry.type);
+      newArticle.dataset.date = entry.date;
+      newArticle.tabIndex = index;
+
 
       mountPoint.appendChild(newArticle)
     })
@@ -53,6 +68,7 @@
   document.addEventListener("DOMContentLoaded", function (event) {
     entryCreator(postData);
   })
+
 
 </script>
 
@@ -72,13 +88,19 @@
       font-weight: 400;
     }
 
-    .short {
+    article {
       border-left: 4px solid rgb(32, 32, 32);
       background-color: rgb(54, 54, 54);
       padding: 12px;
       margin: 4px;
-      border: 1px solid rgb(101, 18, 18);
+      border: 3px solid transparent;
     }
+
+    article:focus {
+      border: 3px solid green;
+      outline: none;
+    }
+
   }
 
   @media (prefers-color-scheme: light) {
